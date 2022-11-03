@@ -17,10 +17,13 @@ session_start();
   
   <div class="sidebar">
   <h4>Employee Management System</h4><br>
-  <a href="#employees">Employees</a>
-  <a href="department">Department</a>
-  <a href="#salary">Salary</a>
-  <a href="#leave">Leave</a>
+  <a href="employees.php">Employees</a>
+  <a href="departments.php">Departments</a>
+  <a href="salary.php">Salary</a>
+  <a href="leave.php">Leave</a>
+   <a href="add_employees.php">Employees</a>
+  <a href="add_departments.php">Departments</a>
+  <a href="add_salary.php">Salary</a>
 </div>
 
   <div class="content">
