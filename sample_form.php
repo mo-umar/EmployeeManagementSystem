@@ -9,11 +9,21 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" >
-
-    <title>Student Grade Calculator</title>
+   <link rel="stylesheet" href="style.css">
+    
+    <title>Employee Management System</title>
 </head>
 <body>
   
+  <div class="sidebar">
+  <h4>Employee Management System</h4><br>
+  <a href="#employees">Employees</a>
+  <a href="department">Department</a>
+  <a href="#salary">Salary</a>
+  <a href="#leave">Leave</a>
+</div>
+
+  <div class="content">
     <div class="container mt-5">
 
         <?php include('message.php'); ?>
@@ -63,7 +73,7 @@ session_start();
             </div>
         </div>
     </div>
-
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
