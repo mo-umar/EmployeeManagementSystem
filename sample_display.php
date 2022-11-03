@@ -10,10 +10,20 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" >
 
-    <title>Student Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Employee Management System</title>
 </head>
 <body>
+  <div class="sidebar">
+  <h4>Employee Management System</h4><br>
+  <a href="#employees">Employees</a>
+  <a href="department">Department</a>
+  <a href="#salary">Salary</a>
+  <a href="#leave">Leave</a>
+  </div>
   
+  <div class="content">
     <div class="container mt-4">
 
         <?php include('message.php'); ?>
@@ -98,7 +108,7 @@
             </div>
         </div>
     </div>
-
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
