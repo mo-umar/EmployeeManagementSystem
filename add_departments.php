@@ -18,12 +18,12 @@ session_start();
   <div class="sidebar">
   <h4>Employee Management System</h4><br>
   <a href="employees.php">Employees</a>
+  <a href="add_employees.php">Add Employees</a>
   <a href="departments.php">Departments</a>
+  <a href="add_departments.php">Add Departments</a>
   <a href="salary.php">Salary</a>
+  <a href="add_salary.php">Add Salary</a>
   <a href="leave.php">Leave</a>
-   <a href="add_employees.php">Employees</a>
-  <a href="add_departments.php">Departments</a>
-  <a href="add_salary.php">Salary</a>
 </div>
 
   <div class="content">
@@ -35,39 +35,24 @@ session_start();
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add Student Grade
-                            <a href="index.php" class="btn btn-danger float-end">Back</a>
+                        <h4>Add Department Information
+                            <a href="departments.php" class="btn btn-danger float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="query.php" method="POST">
+                        <form action="query_department.php" method="POST">
 
+                           
                             <div class="mb-3">
-                                <label>Student ID</label>
-                                <input type="text" name="student_id" class="form-control">
+                                <label>Department Name</label>
+                                <input type="text" placeholder="Department Name" name="DepartmentName" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Assignments</label>
-                                <input type="text" name="assignments" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Quizzes</label>
-                                <input type="text" name="quizzes" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Test</label>
-                                <input type="text" name="tests" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Final Exam</label>
-                                <input type="text" name="final_exam" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Project</label>
-                                <input type="text" name="project" class="form-control">
+                                <label>Departemnt Description</label>
+                                <input type="text" placeholder="Departemnt Description" name="DepartmentDescription" class="form-control">
                             </div>
                             <div class="mb-3 text-center">
-                                <button type="submit" name="save_grade" class="btn btn-primary">Save Grade</button>
+                                <button type="submit" name="save_department" class="btn btn-primary">Save Department</button>
                             </div>
 
                         </form>

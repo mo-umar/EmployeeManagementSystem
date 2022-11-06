@@ -18,13 +18,13 @@ session_start();
   <div class="sidebar">
   <h4>Employee Management System</h4><br>
   <a href="employees.php">Employees</a>
+  <a href="add_employees.php">Add Employees</a>
   <a href="departments.php">Departments</a>
+  <a href="add_departments.php">Add Departments</a>
   <a href="salary.php">Salary</a>
+  <a href="add_salary.php">Add Salary</a>
   <a href="leave.php">Leave</a>
-   <a href="add_employees.php">Employees</a>
-  <a href="add_departments.php">Departments</a>
-  <a href="add_salary.php">Salary</a>
-</div>
+  </div>
 
   <div class="content">
     <div class="container mt-5">
@@ -35,39 +35,43 @@ session_start();
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Add Student Grade
-                            <a href="index.php" class="btn btn-danger float-end">Back</a>
+                        <h4>Add Employee Information
+                            <a href="employees.php" class="btn btn-danger float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="query.php" method="POST">
+                        <form action="query_employee.php" method="POST">
 
                             <div class="mb-3">
-                                <label>Student ID</label>
-                                <input type="text" name="student_id" class="form-control">
+                                <label>Department ID</label>
+                                <input type="text" placeholder="Department ID" name="DepartmentID" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Assignments</label>
-                                <input type="text" name="assignments" class="form-control">
+                                <label>First Name</label>
+                                <input type="text" placeholder="First Name" name="FirstName" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Quizzes</label>
-                                <input type="text" name="quizzes" class="form-control">
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Last Name" name="LastName" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Test</label>
-                                <input type="text" name="tests" class="form-control">
+                                <label>Email</label>
+                                <input type="text" placeholder="Email" name="Email" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Final Exam</label>
-                                <input type="text" name="final_exam" class="form-control">
+                                <label>Phone Number</label>
+                                <input type="text" placeholder="###-###-####" name="PhoneNumber" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Project</label>
-                                <input type="text" name="project" class="form-control">
+                                <label>Address</label>
+                                <input type="text" placeholder="1000 Chastain Rd NW, Kennesaw, GA 30144" name="HouseAddress" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Date Of Birth</label>
+                                <input type="text" placeholder="DD-MM-YYYY" name="DOB" class="form-control">
                             </div>
                             <div class="mb-3 text-center">
-                                <button type="submit" name="save_grade" class="btn btn-primary">Save Grade</button>
+                                <button type="submit" name="save_employee" class="btn btn-primary">Save Employee</button>
                             </div>
 
                         </form>

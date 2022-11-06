@@ -1,9 +1,20 @@
 <?php
-// Development Connection
-$con = mysqli_connect("localhost","root","","swe4633_grade_average");
+
+// Local Connection
+$con = mysqli_connect("localhost","root","","emsdb");
 
 if(!$con){
     die('Connection Failed'. mysqli_connect_error());
 }
+
+
+/*
+// Remote Connection AWS
+$con = mysqli_connect("localhost","admin","1234567890","swe4633firstdb");
+
+if(!$con){
+    die('Connection Failed'. mysqli_connect_error());
+}
+*/
 
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2022 at 11:48 PM
+-- Generation Time: Nov 06, 2022 at 02:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,12 +41,13 @@ CREATE TABLE `departments` (
 
 CREATE TABLE `employees` (
   `EmployeeID` int(11) NOT NULL,
+  `DepartmentID` int(11) NOT NULL,
   `FirstName` varchar(255) NOT NULL,
   `LastName` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `PhoneNumber` varchar(255) NOT NULL,
-  `Address` varchar(255) NOT NULL,
-  `DOB` date NOT NULL
+  `HouseAddress` varchar(255) NOT NULL,
+  `DOB` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,6 +58,9 @@ CREATE TABLE `employees` (
 
 CREATE TABLE `leaves` (
   `LeaveID` int(11) NOT NULL,
+  `EmployeeID` int(11) NOT NULL,
+  `LeaveStart` date NOT NULL,
+  `LeaveEnd` date NOT NULL,
   `LeaveDescription` varchar(255) NOT NULL,
   `Decision` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -69,9 +73,10 @@ CREATE TABLE `leaves` (
 
 CREATE TABLE `salary` (
   `SalaryID` int(11) NOT NULL,
-  `CurrentEmployeeSalary` varchar(255) NOT NULL,
-  `TotalDepartmentSalary` varchar(255) NOT NULL,
-  `TotalEmployeeSalary` varchar(255) NOT NULL
+  `EmployeeID` int(11) NOT NULL,
+  `BasicSalary` varchar(255) NOT NULL,
+  `Overtime` varchar(255) NOT NULL,
+  `Bonus` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -88,19 +93,22 @@ ALTER TABLE `departments`
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`EmployeeID`);
+  ADD PRIMARY KEY (`EmployeeID`),
+  ADD KEY `DepartmentID` (`DepartmentID`);
 
 --
 -- Indexes for table `leaves`
 --
 ALTER TABLE `leaves`
-  ADD PRIMARY KEY (`LeaveID`);
+  ADD PRIMARY KEY (`LeaveID`),
+  ADD KEY `EmployeeID` (`EmployeeID`);
 
 --
 -- Indexes for table `salary`
 --
 ALTER TABLE `salary`
-  ADD PRIMARY KEY (`SalaryID`);
+  ADD PRIMARY KEY (`SalaryID`),
+  ADD KEY `EmployeeID` (`EmployeeID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -110,13 +118,13 @@ ALTER TABLE `salary`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `DepartmentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DepartmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `leaves`
@@ -128,29 +136,29 @@ ALTER TABLE `leaves`
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
-  MODIFY `SalaryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SalaryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `departments`
+-- Constraints for table `employees`
 --
-ALTER TABLE `departments`
-  ADD CONSTRAINT `departments_ibfk_1` FOREIGN KEY (`DepartmentID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `employees`
+  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`DepartmentID`) REFERENCES `departments` (`DepartmentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `leaves`
 --
 ALTER TABLE `leaves`
-  ADD CONSTRAINT `leaves_ibfk_1` FOREIGN KEY (`LeaveID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `leaves_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `salary`
 --
 ALTER TABLE `salary`
-  ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`SalaryID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
