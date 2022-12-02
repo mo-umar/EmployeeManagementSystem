@@ -17,6 +17,7 @@
 <body>
 <div class="sidebar">
   <h4>Employee Management System</h4><br>
+  <a href="landingpage.php">Home</a>
   <a href="employees.php">Employees</a>
   <a href="add_employees.php">Add Employees</a>
   <a href="departments.php">Departments</a>
@@ -24,6 +25,7 @@
   <a href="salary.php">Salary</a>
   <a href="add_salary.php">Add Salary</a>
   <a href="leave.php">Leave</a>
+  <a href="add_leave.php">Add Leave</a>
 </div>
   
   <div class="content">

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once 'dbcon.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,9 +12,9 @@
   <title>Employee Management System</title>
 
   <style>
-    body {
+  body {
   height: 100%;
-  width: 100%;
+  min-width: 100vh;
   background-image: url("LandingPage.jpg");
 }
 
@@ -47,6 +52,29 @@
 	top: 1px;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #545e91;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:slategrey;
+}
 
 .footer {
    position: fixed;
@@ -64,6 +92,15 @@
 <body>
   <div class="landing-page">
   <div class="landing">
+  <ul>
+                <?php if (isset($_SESSION['usr_id'])) { ?>
+                <li style="float:right"><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
+                <li style="float:right"><a href="logout.php">Log Out</a></li>
+                <?php } else { ?>
+                <li style="float:right"><a href="login.php">Login</a></li>
+                <li style="float:right"><a href="register.php">Sign Up</a></li>
+                <?php } ?>
+  </ul>
   <h1>Employee Management System</h1>
   </div>
   <a href="employees.php" class="myButton">Get Started</a>

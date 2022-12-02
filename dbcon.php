@@ -10,7 +10,7 @@ if(!$con){
 
 /*
 // Remote Connection AWS
-$con = mysqli_connect("localhost","admin","1234567890","swe4633firstdb");
+$con = mysqli_connect("localhost","admin","1234567890","emsdb");
 
 if(!$con){
     die('Connection Failed'. mysqli_connect_error());
