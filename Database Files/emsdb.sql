@@ -40,7 +40,6 @@ CREATE TABLE `employees` (
 
 CREATE TABLE `leaves` (
   `LeaveID` int(11) NOT NULL,
-  `EmployeeID` int(11) NOT NULL,
   `LeaveStart` date NOT NULL,
   `LeaveEnd` date NOT NULL,
   `LeaveDescription` varchar(255) NOT NULL,
@@ -59,6 +58,31 @@ CREATE TABLE `salary` (
   `BasicSalary` varchar(255) NOT NULL,
   `Overtime` varchar(255) NOT NULL,
   `Bonus` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblfiles`
+--
+
+CREATE TABLE `tblfiles` (
+  `ID` int(11) NOT NULL,
+  `FileName` varchar(30) NOT NULL,
+  `Location` varchar(90) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(8) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `password` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -82,8 +106,7 @@ ALTER TABLE `employees`
 -- Indexes for table `leaves`
 --
 ALTER TABLE `leaves`
-  ADD PRIMARY KEY (`LeaveID`),
-  ADD KEY `EmployeeID` (`EmployeeID`);
+  ADD PRIMARY KEY (`LeaveID`);
 
 --
 -- Indexes for table `salary`
@@ -93,6 +116,19 @@ ALTER TABLE `salary`
   ADD KEY `EmployeeID` (`EmployeeID`);
 
 --
+-- Indexes for table `tblfiles`
+--
+ALTER TABLE `tblfiles`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -100,25 +136,37 @@ ALTER TABLE `salary`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `DepartmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `DepartmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `LeaveID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `LeaveID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
-  MODIFY `SalaryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `SalaryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tblfiles`
+--
+ALTER TABLE `tblfiles`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -131,15 +179,8 @@ ALTER TABLE `employees`
   ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`DepartmentID`) REFERENCES `departments` (`DepartmentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `leaves`
---
-ALTER TABLE `leaves`
-  ADD CONSTRAINT `leaves_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `salary`
 --
 ALTER TABLE `salary`
   ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
