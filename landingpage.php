@@ -93,20 +93,13 @@ li a:hover {
   <div class="landing-page">
   <div class="landing">
   <ul>
-                <?php if (isset($_SESSION['usr_id'])) { ?>
-                <li style="float:right"><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
-                <li style="float:right"><a href="logout.php">Log Out</a></li>
-                <?php } else { ?>
                 <li style="float:right"><a href="login.php">Login</a></li>
                 <li style="float:right"><a href="register.php">Sign Up</a></li>
-                <?php } ?>
   </ul>
   <h1>Employee Management System</h1>
   </div>
-  <a href="employees.php" class="myButton">Get Started</a>
-
  <div class="footer"> 
-   &copy; Employee Management System
+   &copy; 2022 Employee Management System
  </div>
   </div>
 </body>

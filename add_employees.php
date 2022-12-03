@@ -15,9 +15,8 @@ session_start();
 </head>
 <body>
   
-  <div class="sidebar">
-  <h4>Employee Management System</h4><br>
-  <a href="landingpage.php">Home</a>
+<div class="sidebar">
+  <h4>Employee Management System</h4><hr>
   <a href="employees.php">Employees</a>
   <a href="add_employees.php">Add Employees</a>
   <a href="departments.php">Departments</a>
@@ -26,7 +25,13 @@ session_start();
   <a href="add_salary.php">Add Salary</a>
   <a href="leave.php">Leave</a>
   <a href="add_leave.php">Add Leave</a>
-  </div>
+  <a href="files.php">Files</a>
+  <hr>
+  <?php if (isset($_SESSION['usr_id'])) { ?>
+                <center><p>Signed as <?php echo $_SESSION['usr_name']; ?></p></center>
+                <a href="logout.php">Log Out</a>
+                <?php } ?>
+</div>
 
   <div class="content">
     <div class="container mt-5">
