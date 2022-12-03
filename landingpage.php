@@ -98,6 +98,7 @@ li a:hover {
   </ul>
   <h1>Employee Management System</h1>
   </div>
+  <a href="employees.php" class="myButton">Get Started</a>
  <div class="footer"> 
    &copy; 2022 Employee Management System
  </div>
